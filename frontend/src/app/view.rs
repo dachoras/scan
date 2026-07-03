@@ -69,12 +69,15 @@ impl App {
                         html! {
                             <Login
                                 on_login_success={
-                                    let link = ctx.link().clone();
-                                    Callback::from(move |_| {
-                                        link.send_message(Msg::SetAuthenticated(true));
-                                        Self::apply_redirect_query();
-                                    })
-                                }
+                                     let link = ctx.link().clone();
+                                     Callback::from(move |show_notification: bool| {
+                                         link.send_message(Msg::SetAuthenticated {
+                                             auth: true,
+                                             show_notification,
+                                         });
+                                         Self::apply_redirect_query();
+                                     })
+                                 }
                                 on_status_change={
                                     let link = ctx.link().clone();
                                     Callback::from(move |status| {

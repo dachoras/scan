@@ -40,7 +40,7 @@ pub enum Msg {
     /// Backend answered whether a PIN gate is required.
     LoadPinRequired(bool),
     /// Auth state changed (login success, logout, programmatic unlock).
-    SetAuthenticated(bool),
+    SetAuthenticated { auth: bool, show_notification: bool },
     /// User picked a new locale in the header language picker.
     SwitchLanguage(String),
     /// User clicked the theme toggle.

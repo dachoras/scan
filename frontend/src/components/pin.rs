@@ -16,8 +16,8 @@ use yew::prelude::*;
 /// Props consumed by [`Login`].
 #[derive(Properties, PartialEq)]
 pub struct LoginProps {
-    /// Fires once the backend accepts the entered PIN.
-    pub on_login_success: Callback<()>,
+    /// Fires once the backend accepts the entered PIN. Passes true if a PIN was verified, false if skipped.
+    pub on_login_success: Callback<bool>,
     /// Optional sink for transient status banners; defaults to a no-op
     /// callback so unconfigured parents don't have to pass anything.
     #[prop_or_default]
@@ -53,7 +53,7 @@ pub fn login(props: &LoginProps) -> Html {
             spawn_local(async move {
                 if let Ok(res) = ApiService::check_pin_required().await {
                     if !res.required {
-                        on_success.emit(());
+                        on_success.emit(false);
                     } else {
                         is_locked.set(res.locked);
                         pin_length.set(res.length);
@@ -93,7 +93,7 @@ pub fn login(props: &LoginProps) -> Html {
                     spawn_local(async move {
                         if let Ok(res) = ApiService::verify_pin(&filtered).await {
                             if res.success {
-                                on_success.emit(());
+                                on_success.emit(true);
                             } else {
                                 let status_msg = lookup(
                                     StringKey::StatusPinFailure,
@@ -144,7 +144,7 @@ pub fn login(props: &LoginProps) -> Html {
                 spawn_local(async move {
                     if let Ok(res) = ApiService::verify_pin(&val).await {
                         if res.success {
-                            on_success.emit(());
+                            on_success.emit(true);
                         } else {
                             let status_msg =
                                 lookup(StringKey::StatusPinFailure, Language::from_code(&loc_code))

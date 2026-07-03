@@ -209,62 +209,58 @@ pub fn scan_game(props: &Props) -> Html {
 
     html! {
         <div class="game-container">
-            <div class="game-main-panel">
-                <div class="hud-bar glassmorphic">
-                    <div class="hud-metric">
-                        <span class="hud-label">{ format!("{}:", locale.t("sector").to_uppercase()) }</span>
-                        <span class="hud-value font-neon">{ sector.name().to_uppercase() }</span>
-                    </div>
-                    <div class="hud-metric">
-                        <span class="hud-label">{ "BEACONS:" }</span>
-                        <span class="hud-value font-neon">{ remaining_beacons }</span>
-                    </div>
-                    <div class="hud-metric">
-                        <span class="hud-label">{ format!("{}:", locale.t("score").to_uppercase()) }</span>
-                        <span class="hud-value font-neon">{ format!("{:.1}s", *elapsed as f64 / 10.0) }</span>
-                    </div>
+            <div class="hud-bar glassmorphic">
+                <div class="hud-metric">
+                    <span class="hud-label">{ format!("{}:", locale.t("sector").to_uppercase()) }</span>
+                    <span class="hud-value font-neon">{ sector.name().to_uppercase() }</span>
                 </div>
-
-                <div class="control-row">
-                    <div class="sector-buttons">
-                        <button onclick={sector_alpha} class={if *sector == Sector::Alpha { "active" } else { "" }}>{"ALPHA"}</button>
-                        <button onclick={sector_beta} class={if *sector == Sector::Beta { "active" } else { "" }}>{"BETA"}</button>
-                        <button onclick={sector_gamma} class={if *sector == Sector::Gamma { "active" } else { "" }}>{"GAMMA"}</button>
-                    </div>
-                    <div class="mode-toggles">
-                        <button onclick={toggle_flag_mode} class={if *flag_mode { "active" } else { "" }}>
-                            { if *flag_mode { "⚑ BEACON" } else { "⛏ REVEAL" } }
-                        </button>
-                        <button onclick={restart_click} class="btn-reset">{ locale.t("play_again") }</button>
-                    </div>
+                <div class="hud-metric">
+                    <span class="hud-label">{ "BEACONS:" }</span>
+                    <span class="hud-value font-neon">{ remaining_beacons }</span>
                 </div>
-
-                <div class="board-frame">
-                    <ScanBoard
-                        board={(*board).clone()}
-                        flag_mode={*flag_mode}
-                        on_reveal={on_reveal}
-                        on_flag={on_flag}
-                    />
-
-                    { if board.status == GameStatus::Won || board.status == GameStatus::Lost {
-                        html! {
-                            <ScanOverlay
-                                status={board.status}
-                                elapsed_tenths={*elapsed}
-                                on_restart={on_restart_overlay}
-                                on_submit={on_submit_score}
-                            />
-                        }
-                    } else {
-                        html! {}
-                    } }
+                <div class="hud-metric">
+                    <span class="hud-label">{ format!("{}:", locale.t("score").to_uppercase()) }</span>
+                    <span class="hud-value font-neon">{ format!("{:.1}s", *elapsed as f64 / 10.0) }</span>
                 </div>
             </div>
 
-            <div class="game-side-panel">
-                <ScanLeaderboard sector={*sector} reload_trigger={*reload_trigger} />
+            <div class="control-row">
+                <div class="sector-buttons">
+                    <button onclick={sector_alpha} class={if *sector == Sector::Alpha { "active" } else { "" }}>{"ALPHA"}</button>
+                    <button onclick={sector_beta} class={if *sector == Sector::Beta { "active" } else { "" }}>{"BETA"}</button>
+                    <button onclick={sector_gamma} class={if *sector == Sector::Gamma { "active" } else { "" }}>{"GAMMA"}</button>
+                </div>
+                <div class="mode-toggles">
+                    <button onclick={toggle_flag_mode} class={if *flag_mode { "active" } else { "" }}>
+                        { if *flag_mode { "⚑ BEACON" } else { "⛏ REVEAL" } }
+                    </button>
+                    <button onclick={restart_click} class="btn-reset">{ locale.t("play_again") }</button>
+                </div>
             </div>
+
+            <div class="board-frame">
+                <ScanBoard
+                    board={(*board).clone()}
+                    flag_mode={*flag_mode}
+                    on_reveal={on_reveal}
+                    on_flag={on_flag}
+                />
+
+                { if board.status == GameStatus::Won || board.status == GameStatus::Lost {
+                    html! {
+                        <ScanOverlay
+                            status={board.status}
+                            elapsed_tenths={*elapsed}
+                            on_restart={on_restart_overlay}
+                            on_submit={on_submit_score}
+                        />
+                    }
+                } else {
+                    html! {}
+                } }
+            </div>
+
+            <ScanLeaderboard sector={*sector} reload_trigger={*reload_trigger} />
         </div>
     }
 }

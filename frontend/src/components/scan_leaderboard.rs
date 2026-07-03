@@ -35,37 +35,23 @@ pub fn scan_leaderboard(props: &Props) -> Html {
     html! {
         <div class="leaderboard-panel glassmorphic">
             <h3>{ format!("{} {}", sector.name(), locale.t("leaderboard")) }</h3>
-            <div class="leaderboard-table-container">
-                <table class="leaderboard-table">
-                    <thead>
-                        <tr>
-                            <th>{ "RANK" }</th>
-                            <th>{ "OPERATOR" }</th>
-                            <th>{ locale.t("score") }</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        { if entries.is_empty() {
-                            html! {
-                                <tr>
-                                    <td colspan="3" class="no-records">{ locale.t("no_scores") }</td>
-                                </tr>
-                            }
-                        } else {
-                            html! {
-                                { for entries.iter().enumerate().map(|(idx, entry)| {
-                                    html! {
-                                        <tr>
-                                            <td class="rank-col">{ format!("#{}", idx + 1) }</td>
-                                            <td class="name-col">{ &entry.name }</td>
-                                            <td class="score-col">{ format!("{:.1}s", entry.score as f64 / 10.0) }</td>
-                                        </tr>
-                                    }
-                                }) }
-                            }
-                        } }
-                    </tbody>
-                </table>
+            <div class="leaderboard-list">
+                { if entries.is_empty() {
+                    html! { <div class="leaderboard-empty">{ locale.t("no_scores") }</div> }
+                } else {
+                    html! {
+                        <ul class="leaderboard-ol">
+                            { for entries.iter().take(5).enumerate().map(|(idx, entry)| {
+                                html! {
+                                    <li key={idx} class="leaderboard-item">
+                                        <span class="leader-name">{ format!("{}. {}", idx + 1, entry.name) }</span>
+                                        <span class="leader-score">{ format!("{:.1}s", entry.score as f64 / 10.0) }</span>
+                                    </li>
+                                }
+                            }) }
+                        </ul>
+                    }
+                } }
             </div>
         </div>
     }

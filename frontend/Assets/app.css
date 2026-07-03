@@ -188,11 +188,25 @@ main {
 }
 
 .scan-grid {
+    display: grid;
+    grid-template-rows: repeat(var(--rows), 1fr);
+    grid-template-columns: repeat(var(--cols), 1fr);
+    gap: 4px;
+    margin: 0 auto;
     background: rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 8px;
     padding: 0.5rem;
     box-sizing: border-box;
+    width: 100%;
+    max-width: min(100%, calc((100vh - 250px) * (var(--cols) / var(--rows))));
+    aspect-ratio: var(--cols) / var(--rows);
+}
+
+@media (max-width: 900px) {
+    .scan-grid {
+        max-width: 100%;
+    }
 }
 
 .scan-cell {

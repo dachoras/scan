@@ -5,11 +5,7 @@
 //! transparently unwraps them on read and re-normalises on write.
 
 /// Name of the long-lived cookie used to persist the active theme.
-///
-/// Note: this used to be `super_metroid_theme` in the upstream fork; it was
-/// renamed to `snake_theme` when the cookie key was rebranded to match this
-/// project's name.
-const COOKIE_NAME: &str = "snake_theme";
+const COOKIE_NAME: &str = "scan_theme";
 
 /// Static facade over the browser storage APIs used by the application.
 pub struct StorageService;

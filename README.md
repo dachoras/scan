@@ -1,4 +1,4 @@
-# Scan — Orbital Sector Scanner <img src="https://raw.githubusercontent.com/UberMetroid/unraid-templates/main/icons/scan.png" width="48" height="48" alt="scan logo" align="right">
+# Scan — Orbital Sector Scanner <img src="https://raw.githubusercontent.com/etecoons/unraid-apps/main/icons/scan.png" width="48" height="48" alt="scan logo" align="right">
 
 Scan is a clean, secure, and optimized planetary hazard sector scanner (Minesweeper clone) built in Rust and WebAssembly, served by a high-performance Axum backend.
 

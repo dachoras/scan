@@ -7,12 +7,12 @@ resolver = "2"
 
 
 [workspace.package]
-version = "0.2.3"
+version = "0.2.4"
 edition = "2024"
 authors = ["UberMetroid"]
 license = "Apache-2.0"
-repository = "https://github.com/UberMetroid/scan"
-homepage = "https://github.com/UberMetroid/scan"
+repository = "https://github.com/etecoons/scan"
+homepage = "https://github.com/etecoons/scan"
 
 
 [workspace.lints.rust]

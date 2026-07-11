@@ -152,7 +152,7 @@ dependencies = [
 
 [[package]]
 name = "backend"
-version = "0.2.3"
+version = "0.2.4"
 dependencies = [
  "axum",
  "axum-extra",
@@ -434,7 +434,7 @@ dependencies = [
 
 [[package]]
 name = "frontend"
-version = "0.2.3"
+version = "0.2.4"
 dependencies = [
  "futures-channel",
  "futures-util",
@@ -1576,8 +1576,8 @@ dependencies = [
 
 [[package]]
 name = "shared-backend"
-version = "3.0.19"
-source = "git+https://github.com/UberMetroid/shared-assets?tag=v3.0.19#2c5b0659ef7bcda53bec6d9c856c57dea9d06ee9"
+version = "3.0.20"
+source = "git+https://github.com/etecoons/shared-assets.git?tag=v3.0.20#ad7c30897674802b6219374c8d4ef1d6bb02822e"
 dependencies = [
  "anyhow",
  "axum",
@@ -1597,8 +1597,8 @@ dependencies = [
 
 [[package]]
 name = "shared-core"
-version = "3.0.19"
-source = "git+https://github.com/UberMetroid/shared-assets?tag=v3.0.19#2c5b0659ef7bcda53bec6d9c856c57dea9d06ee9"
+version = "3.0.20"
+source = "git+https://github.com/etecoons/shared-assets.git?tag=v3.0.20#ad7c30897674802b6219374c8d4ef1d6bb02822e"
 dependencies = [
  "constant_time_eq",
  "serde",
@@ -1606,8 +1606,8 @@ dependencies = [
 
 [[package]]
 name = "shared-frontend"
-version = "3.0.19"
-source = "git+https://github.com/UberMetroid/shared-assets?tag=v3.0.19#2c5b0659ef7bcda53bec6d9c856c57dea9d06ee9"
+version = "3.0.20"
+source = "git+https://github.com/etecoons/shared-assets.git?tag=v3.0.20#ad7c30897674802b6219374c8d4ef1d6bb02822e"
 dependencies = [
  "js-sys",
  "serde",

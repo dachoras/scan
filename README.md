@@ -1,26 +1,32 @@
+<p align="center">
+  <a href="https://github.com/etecoons">
+    <img src="assets/header.jpg" alt="etecoons banner" width="100%">
+  </a>
+</p>
+
 # Scan — Orbital Sector Scanner <img src="https://raw.githubusercontent.com/etecoons/unraid-apps/main/icons/scan.png" width="48" height="48" alt="scan logo" align="right">
 
 Scan is a clean, secure, and optimized planetary hazard sector scanner (Minesweeper clone) built in Rust and WebAssembly, served by a high-performance Axum backend.
 
 ---
 
-## 🏛️ Architecture & Stack
-*   **Frontend**: Yew (WASM)
-*   **Backend**: Axum (Rust) / Tokio
-*   **Deployment**: UBI container (Red Hat UBI9) on Docker Hub / Unraid / Podman / Docker Compose
+## Architecture & Stack
+* **Frontend**: Yew (WASM)
+* **Backend**: Axum (Rust) / Tokio
+* **Deployment**: UBI container (Red Hat UBI9) on Docker Hub / Unraid / Podman / Docker Compose
 
 ---
 
 ## 🟢 Key Features
-*   **Standardized UI Alignment**: Completely integrated with `shared-assets` for a uniform theme engine, navigation header, footer, and authentication layout.
-*   **Orbital Sector Environments**: Selectable atmospheric navigation sectors (Alpha, Beta, Gamma, Delta, Epsilon, Zeta) with custom sci-fi HUD color schemes.
-*   **Classic Scanning Rules**: Geothermal hazard (mine) sweep validation, adjacent count warnings, beacon placement (flags), and custom difficulty presets.
-*   **Secure PIN Access**: Optional lock screen gate with client IP rate-limiting, timing-attack protections, and session cookie validation.
-*   **Performance First**: Tiny resource footprint, zero external JS engine dependencies, and rapid page load speeds.
+* **Standardized UI Alignment**: Completely integrated with `shared-assets` for a uniform theme engine, navigation header, footer, and authentication layout.
+* **Orbital Sector Environments**: Selectable atmospheric navigation sectors (Alpha, Beta, Gamma, Delta, Epsilon, Zeta) with custom sci-fi HUD color schemes.
+* **Classic Scanning Rules**: Geothermal hazard (mine) sweep validation, adjacent count warnings, beacon placement (flags), and custom difficulty presets.
+* **Secure PIN Access**: Optional lock screen gate with client IP rate-limiting, timing-attack protections, and session cookie validation.
+* **Performance First**: Tiny resource footprint, zero external JS engine dependencies, and rapid page load speeds.
 
 ---
 
-## 💾 Deployment & Installation
+## Deployment & Installation
 
 ### Container images (Docker Hub)
 
@@ -46,25 +52,25 @@ Create a `docker-compose.yml` file with the following service definition:
 
 ```yaml
 services:
-  scan:
-    image: etecoons/scan:latest
-    container_name: scan
-    restart: unless-stopped
-    volumes:
-      - ${SCAN_DATA_PATH:-./data}:/app/data
-    ports:
-      - ${PORT:-4503}:4503
-    environment:
-      PORT: 4503
-      BASE_URL: ${SCAN_BASE_URL:-http://localhost:4503}
-      SCAN_PIN: ${SCAN_PIN:-}
-      ALLOWED_ORIGINS: ${SCAN_ALLOWED_ORIGINS:-*}
-      MAX_ATTEMPTS: ${MAX_ATTEMPTS:-5}
-      SITE_TITLE: ${SCAN_SITE_TITLE:-Scan}
-      ENABLE_TRANSLATION: ${ENABLE_TRANSLATION:-true}
-      ENABLE_THEMES: ${ENABLE_THEMES:-true}
-      ENABLE_PRINT: ${ENABLE_PRINT:-true}
-      TZ: ${TZ:-UTC}
+ scan:
+ image: etecoons/scan:latest
+ container_name: scan
+ restart: unless-stopped
+ volumes:
+ - ${SCAN_DATA_PATH:-./data}:/app/data
+ ports:
+ - ${PORT:-4503}:4503
+ environment:
+ PORT: 4503
+ BASE_URL: ${SCAN_BASE_URL:-http://localhost:4503}
+ SCAN_PIN: ${SCAN_PIN:-}
+ ALLOWED_ORIGINS: ${SCAN_ALLOWED_ORIGINS:-*}
+ MAX_ATTEMPTS: ${MAX_ATTEMPTS:-5}
+ SITE_TITLE: ${SCAN_SITE_TITLE:-Scan}
+ ENABLE_TRANSLATION: ${ENABLE_TRANSLATION:-true}
+ ENABLE_THEMES: ${ENABLE_THEMES:-true}
+ ENABLE_PRINT: ${ENABLE_PRINT:-true}
+ TZ: ${TZ:-UTC}
 ```
 
 ### Build the UBI image locally
@@ -74,10 +80,10 @@ Requires [Podman](https://podman.io/) (or Docker) and network access to pull bas
 ```bash
 # From the repository root
 podman build --format docker -f Containerfile.ubi \
-  -t docker.io/etecoons/scan:0.2.3 \
-  -t docker.io/etecoons/scan:latest \
-  -t docker.io/etecoons/scan:ubi \
-  .
+ -t docker.io/etecoons/scan:0.2.3 \
+ -t docker.io/etecoons/scan:latest \
+ -t docker.io/etecoons/scan:ubi \
+ .
 
 # Optional: push all three tags
 podman push docker.io/etecoons/scan:0.2.3
@@ -87,7 +93,7 @@ podman push docker.io/etecoons/scan:ubi
 
 ---
 
-## ⚙️ Configuration Options
+## Configuration Options
 
 | Environment Variable | Description | Default |
 | :--- | :--- | :--- |
@@ -111,7 +117,7 @@ podman push docker.io/etecoons/scan:ubi
 
 ---
 
-## 🛠️ Local Development
+## Local Development
 
 Ensure you have the Rust toolchain and Trunk installed.
 
@@ -131,5 +137,5 @@ cd backend && cargo run
 
 ---
 
-## 📄 License
+## License
 Licensed under the [Apache License, Version 2.0](LICENSE). Copyright 2026 etecoons.

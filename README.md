@@ -40,12 +40,12 @@ Images are **UBI9-minimal** based (Red Hat Universal Base Image). Tags:
 
 ```bash
 # Pull examples
-podman pull docker.io/etecoons/scan:latest
-podman pull docker.io/etecoons/scan:ubi
-podman pull docker.io/etecoons/scan:0.2.3
+podman pull docker.io/ghcr.io/etecoons/scan:latest
+podman pull docker.io/ghcr.io/etecoons/scan:ubi
+podman pull docker.io/ghcr.io/etecoons/scan:0.2.3
 ```
 
-Hub: [https://hub.docker.com/r/etecoons/scan](https://hub.docker.com/r/etecoons/scan)
+Hub: [https://hub.docker.com/r/ghcr.io/etecoons/scan](https://hub.docker.com/r/ghcr.io/etecoons/scan)
 
 ### Docker Compose
 Create a `docker-compose.yml` file with the following service definition:
@@ -53,7 +53,7 @@ Create a `docker-compose.yml` file with the following service definition:
 ```yaml
 services:
  scan:
- image: etecoons/scan:latest
+ image: ghcr.io/etecoons/scan:latest
  container_name: scan
  restart: unless-stopped
  volumes:
@@ -80,15 +80,15 @@ Requires [Podman](https://podman.io/) (or Docker) and network access to pull bas
 ```bash
 # From the repository root
 podman build --format docker -f Containerfile.ubi \
- -t docker.io/etecoons/scan:0.2.3 \
- -t docker.io/etecoons/scan:latest \
- -t docker.io/etecoons/scan:ubi \
+ -t docker.io/ghcr.io/etecoons/scan:0.2.3 \
+ -t docker.io/ghcr.io/etecoons/scan:latest \
+ -t docker.io/ghcr.io/etecoons/scan:ubi \
  .
 
 # Optional: push all three tags
-podman push docker.io/etecoons/scan:0.2.3
-podman push docker.io/etecoons/scan:latest
-podman push docker.io/etecoons/scan:ubi
+podman push docker.io/ghcr.io/etecoons/scan:0.2.3
+podman push docker.io/ghcr.io/etecoons/scan:latest
+podman push docker.io/ghcr.io/etecoons/scan:ubi
 ```
 
 ---

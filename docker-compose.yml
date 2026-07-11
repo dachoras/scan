@@ -37,9 +37,9 @@
 services:
   scan:
     # (1) MANDATORY: image to run. Pulled from Docker Hub. To use a
-    # locally-built image instead, replace with `image: etecoons/scan:latest`
+    # locally-built image instead, replace with `image: ghcr.io/etecoons/scan:latest`
     # after `podman build -f Containerfile.ubi
-    image: etecoons/scan:latest
+    image: ghcr.io/etecoons/scan:latest
     container_name: scan
     restart: unless-stopped
 

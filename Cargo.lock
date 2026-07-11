@@ -152,7 +152,7 @@ dependencies = [
 
 [[package]]
 name = "backend"
-version = "0.2.8"
+version = "0.2.9"
 dependencies = [
  "axum",
  "axum-extra",
@@ -434,7 +434,7 @@ dependencies = [
 
 [[package]]
 name = "frontend"
-version = "0.2.8"
+version = "0.2.9"
 dependencies = [
  "futures-channel",
  "futures-util",
@@ -1593,8 +1593,8 @@ dependencies = [
 
 [[package]]
 name = "shared-backend"
-version = "3.0.21"
-source = "git+https://github.com/etecoons/shared-assets.git?tag=v3.0.21#dfbab9b25259f19fd01ec3d85e918af7aa358730"
+version = "3.0.28"
+source = "git+https://github.com/etecoons/shared-assets.git?tag=v3.0.28#afb616ffb4b9d43a1bd4ae119dfaa339c648049d"
 dependencies = [
  "anyhow",
  "axum",
@@ -1614,8 +1614,8 @@ dependencies = [
 
 [[package]]
 name = "shared-core"
-version = "3.0.21"
-source = "git+https://github.com/etecoons/shared-assets.git?tag=v3.0.21#dfbab9b25259f19fd01ec3d85e918af7aa358730"
+version = "3.0.28"
+source = "git+https://github.com/etecoons/shared-assets.git?tag=v3.0.28#afb616ffb4b9d43a1bd4ae119dfaa339c648049d"
 dependencies = [
  "constant_time_eq",
  "serde",
@@ -1623,8 +1623,8 @@ dependencies = [
 
 [[package]]
 name = "shared-frontend"
-version = "3.0.21"
-source = "git+https://github.com/etecoons/shared-assets.git?tag=v3.0.21#dfbab9b25259f19fd01ec3d85e918af7aa358730"
+version = "3.0.28"
+source = "git+https://github.com/etecoons/shared-assets.git?tag=v3.0.28#afb616ffb4b9d43a1bd4ae119dfaa339c648049d"
 dependencies = [
  "js-sys",
  "serde",

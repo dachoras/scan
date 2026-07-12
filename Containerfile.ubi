@@ -5,7 +5,7 @@
 # Build stage: rust official image (reliable wasm32 + trunk). Runtime is pure UBI.
 #
 # Build (Podman):
-#   cd ~/Projects/etecoons/scan
+#   cd ~/projects/dachoras/scan
 #   podman build -f Containerfile.ubi -t scan-ubi:latest .
 #
 # Run:
@@ -18,7 +18,7 @@
 #
 
 # Compare size:
-#   podman images | grep -E 'scan-ubi|etecoons/scan'
+#   podman images | grep -E 'scan-ubi|dachoras/scan'
 # =============================================================================
 
 # ---------- build: compile backend + WASM frontend ----------
@@ -64,7 +64,7 @@ FROM registry.access.redhat.com/ubi9/ubi-minimal:latest
 
 LABEL org.opencontainers.image.title="scan" \
       org.opencontainers.image.description="scan (UBI9 minimal pilot)" \
-      org.opencontainers.image.source="https://github.com/etecoons/scan" \
+      org.opencontainers.image.source="https://github.com/dachoras/scan" \
       org.opencontainers.image.base.name="registry.access.redhat.com/ubi9/ubi-minimal"
 
 # ca-certificates for HTTPS outbound; wget for HEALTHCHECK.

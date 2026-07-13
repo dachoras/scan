@@ -46,11 +46,8 @@ jobs:
       - name: Cargo Test
         run: cargo test --workspace
 
-      - name: Install cargo-binstall
-        run: curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
-
       - name: Install cargo-deny
-        run: cargo binstall -y cargo-deny
+        uses: taiki-e/install-action@cargo-deny
 
       - name: Cargo Deny Check
         run: cargo deny check

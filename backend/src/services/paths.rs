@@ -14,10 +14,10 @@ pub const DEFAULT_DATA_DIR: &str = "data";
 pub const DEFAULT_FRONTEND_DIR: &str = "frontend/dist";
 
 /// Env-var name overriding [`DEFAULT_DATA_DIR`].
-pub const DATA_DIR_ENV: &str = "SNAKE_DATA_DIR";
+pub const DATA_DIR_ENV: &str = "SCAN_DATA_DIR";
 
 /// Env-var name overriding [`DEFAULT_FRONTEND_DIR`].
-pub const FRONTEND_DIR_ENV: &str = "SNAKE_FRONTEND_DIR";
+pub const FRONTEND_DIR_ENV: &str = "SCAN_FRONTEND_DIR";
 
 /// Resolve a directory path from an env-var override (if non-empty), or
 /// fall back to the supplied default.

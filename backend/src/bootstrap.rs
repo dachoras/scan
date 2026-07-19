@@ -99,7 +99,7 @@ pub fn build_state(config: AppConfig) -> AppState {
         "state initialised"
     );
     // Log the leaderboard file location at startup so operators know
-    // where scores persist — important when `SNAKE_DATA_DIR` is set
+    // where scores persist — important when `SCAN_DATA_DIR` is set
     // somewhere unexpected. Without this line, finding the file
     // requires code-diving.
     tracing::info!(

@@ -12,6 +12,9 @@ use std::str::FromStr;
 
 const DEFAULT_PORT: u16 = 4501;
 
+/// Canonical application brand name.
+pub const APP_BRAND: &str = "Scan";
+
 /// Scan application configuration.
 #[derive(Clone, Debug)]
 pub struct AppConfig {
